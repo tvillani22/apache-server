@@ -3,7 +3,12 @@ services:
   apache:
     build: .
     ports:
-      - 8080:80
+      - 80:80
+      - 8080:8080
     volumes:
-      - ./:/var/www/html
-    
+#      - ./:/var/www/html
+       - vol_persist:/var/www/data 
+volumes:
+  vol_persist:
+
+# Con pull dde dockerhub replace lin 4 c/: image: tvillani/tp_apache_server:tag
