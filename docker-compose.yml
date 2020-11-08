@@ -2,13 +2,15 @@ version: '3'
 services:
   apache:
     build: .
+    #image: tvillani/tp_apache_server:0
     ports:
       - 80:80
       - 8080:8080
     volumes:
-#      - ./:/var/www/html
-       - vol_persist:/var/www/data 
+       - vol_persist:/var/www/data
+    container_name: container_tp
 volumes:
   vol_persist:
 
-# Con pull dde dockerhub replace lin 4 c/: image: tvillani/tp_apache_server:tag
+# C/pull dde dockerhub replace lin 4 c/: image: tvillani/tp_apache_server:tag
+# P/poder editar sitio mientras corre replace lin 10 c/: - ./sitios/:/var/www/ 
