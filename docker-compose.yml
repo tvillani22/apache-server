@@ -6,9 +6,11 @@ services:
       - 80:80
       - 8080:8080
     volumes:
-#      - ./:/var/www/html
-       - vol_persist:/var/www/data 
+       - vol_persist:/var/www/data
+    container_name: container_tp
 volumes:
   vol_persist:
 
-# Con pull dde dockerhub replace lin 4 c/: image: tvillani/tp_apache_server:tag
+# Alternativas
+# image: tvillani/tp_apache_server[:tag]
+# - ./sitios/:/var/www/ 
