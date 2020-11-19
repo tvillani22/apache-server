@@ -60,7 +60,7 @@ docker-compose down
 >Y comenzar el procedimiento desde el punto 3 en adelante (omitiendo 1 y 2). Al levantar el contenedor, docker reconocerá que no tiene esa imagen entre las disponibles localmente y hará el `pull` desde el repositorio.
 
 ### Alternativa II: Edición del sitio con el contenedor corriendo
->El paso a paso descripto es ideal para compartir el proyecto porque contiene el procedimiento de instalación y ejecución del servidor junto con los sitios todo en una unidad (la imagen). Pero no permite la edición de los sitios en tiempo de ejecución. Una posible solución es montar la carpeta local donde está el contenido de los sitios en el path donde están sus correspondientes copias. Para ello, ejemplificando para el server del primer contenedor, basta reemplazar la línea 11 del `docker-compose.yml` con: <br>
+>El paso a paso descripto es ideal para compartir el proyecto porque contiene el procedimiento de instalación y ejecución del servidor junto con los sitios todo en una unidad (la imagen). Pero no permite la edición de los sitios en tiempo de ejecución. Una posible solución es montar la carpeta local donde está el contenido de los sitios en el path donde están sus correspondientes copias. Para ello, ejemplificando para el server del primer contenedor, basta reemplazar la línea 12 del `docker-compose.yml` con: <br>
 >```
 >./C1/sitios/:/var/www/
 >```
@@ -80,7 +80,7 @@ docker-compose down
 >Con `#` dependiendo el contnedor a escalar. Y para corroborar si efectivamente se levantaron esos contenedores puede correse nuevamente `docker service ls` observando la columna **replicas**. Obviamente es posible mirar información particular de cada uno como se explicó en el paso 4, aunque en este caso, dado que pueden ser múltiples, docker ignorará el nombre asignado al container en el `docker-compose.yml`, por lo que en el segundo comando indicado se debe reemplazar `tp_container` por el nombre (o el id) del container que se obtiene del output de `docker ps`.<br>
 >Para cerrar el swarm:
 >```
->docker swarn leave --force
+>docker swarm leave --force
 >```
 <br>
 <br>

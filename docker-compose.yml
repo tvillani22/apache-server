@@ -4,12 +4,13 @@ services:
   server1:
     build: .
     image: server1:latest
+    # image: tvillani/tp_apache_server
     ports:
       - 80:80
       - 8080:8080
     volumes:
-      - ./C1/sitios/:/var/www/ 
-      #- vol_persist:/var/www/data
+      - vol_persist:/var/www/data
+      # - ./C1/sitios/:/var/www/ 
     container_name: container_tp
     restart: always
 
@@ -25,7 +26,3 @@ services:
 
 volumes:
   vol_persist:
-
-# Alternativas
-# image: tvillani/tp_apache_server[:tag]
-# - ./C1/sitios/:/var/www/ 
