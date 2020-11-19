@@ -1,16 +1,28 @@
 version: '3'
+
 services:
-  apache:
+  server1:
     build: .
+    image: server1:latest
+    # image: tvillani/tp_apache_server
     ports:
       - 80:80
       - 8080:8080
     volumes:
-       - vol_persist:/var/www/data
+      - vol_persist:/var/www/data
+      # - ./C1/sitios/:/var/www/ 
     container_name: container_tp
+    restart: always
+
+  server2:
+    build:
+      context: .
+      dockerfile: Dockerfile2
+    image: server2:latest
+    ports:
+      - 8888:8888
+    container_name: container2_tp
+    restart: always
+
 volumes:
   vol_persist:
-
-# Alternativas
-# image: tvillani/tp_apache_server[:tag]
-# - ./sitios/:/var/www/ 
