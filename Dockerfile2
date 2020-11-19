@@ -8,13 +8,13 @@ RUN apt update && apt -y install apache2 php && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /etc/apache2/sites-available/
 
-COPY C1/sitios/ /var/www/
+COPY C2/sitios/ /var/www/
 
-COPY C1/apache2.conf C1/ports.conf  ../
+COPY C2/apache2.conf  ../
 
 RUN rm 000-default.conf
 
-EXPOSE 80 8080
+EXPOSE 8888
 
 CMD ["apachectl", "-D", "FOREGROUND"]
 
