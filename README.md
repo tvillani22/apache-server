@@ -53,6 +53,7 @@ docker-compose down
 ```
 <br>
 
+## Ejecuciones alternativas
 ### Alternativa I: Descargar la imagen ya armada
 >Es posible también correr el servidor de uno de los contenedores desde una imagen ya armada y alojada en un [repositorio de Dockerhub](https://hub.docker.com/r/tvillani/tp_apache_server). La forma convencional de descargarla es con `docker pull tvillani/tp_apache_server:tag`, pero para adaptarlo al procedimiento descrito de la sección anterior lo más sencillo es reemplazar las líneas 5, 6 y 7 del `docker-compose.yml` con:<br>
 >```
@@ -85,12 +86,18 @@ docker-compose down
 >docker swarm leave --force
 >```
 <br>
-<br>
 
-<table cellspacing="0" cellpadding="100">
+## Contacto
+- https://github.com/ipolesello
+- https://github.com/tomlazersheep
+- https://github.com/tvillani22
+
+<table cellspacing="100" cellpadding="100">
   <tr>
-  <td> <a href=https://ubuntu.com> <img id="im" src=imgs/ubuntu_logo.svg width=300/> </a> </td>
-  <td> <a href=https://www.docker.com><img id="im" src=imgs/docker_logo.png width=400/></a> </td>
-  <td> <a href=https://httpd.apache.org><img id="im" src=imgs/apache_server_logo.svg width=300/></a> </td>
+  <td> <a href=https://ubuntu.com> <img id="im" src=imgs/ubuntu.svg width=300/> </a> </td>
+  <td> <a href=https://httpd.apache.org><img id="im" src=imgs/apache_server.svg   width=300/></a> </td>
+  <td> <a href=https://mariadb.org><img id="im" src=imgs/mariadb.svg   width=300/></a> </td>
+  <td> <a href=https://www.php.net><img id="im" src=imgs/php.svg   width=300/></a> </td>
+  <td> <a href=https://www.docker.com><img id="im" src=imgs/docker.png width=400//></a> </td>
   </tr>
 </table>
