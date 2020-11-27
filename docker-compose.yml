@@ -2,9 +2,10 @@ version: '3'
 
 services:
   server1:
-    build: .
+    build:
+      context: ./C1
     image: server1:latest
-    # image: tvillani/tp_apache_server
+    #image: tvillani/tp_apache_server:latest
     ports:
       - 80:80
       - 8080:8080
@@ -13,8 +14,7 @@ services:
 
   server2:
     build:
-      context: .
-      dockerfile: Dockerfile2
+      context: ./C2
     image: server2:latest
     ports:
       - 8888:8888
@@ -27,36 +27,25 @@ services:
 
   mariadb:
     image: mariadb:10.5
+    env_file: .env
     environment:
       MYSQL_ROOT_PASSWORD: ${ROOT_PASS}
       MYSQL_USER: ${USER_MDB}
-      MYSQL_PASSWORD: '${USER_MDB_PASS}'
+      MYSQL_PASSWORD: ${USER_MDB_PASS}
       MYSQL_DATABASE: db_visitas
     container_name: container3_tp
     restart: always
     volumes:
       - ./C3:/docker-entrypoint-initdb.d
-      - db_volume:/var/lib/mysql 
+      - db_volume:/var/lib/mysql
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:5
-    links:
-      - 'mariadb:db'
     ports:
       - 8889:80
     container_name: container4_tp 
+    environment:
+      PMA_HOST: mariadb
+
 volumes:
   db_volume:
-
-  #- db_volume:/var/www/data
-
-      #volumes:
-      #- ./C2/sitios/:/var/www/ 
-
-      #comillas o no en los campos naranjas da igual
-
-            #TZ: "America/Argentina/Buenos_Aires"
-      #MYSQL_ALLOW_EMPTY_PASSWORD: no
-
-          #ports:
-    #  - 3306:3306
