@@ -1,3 +1,9 @@
+<?php
+
+include_once 'conex.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -9,9 +15,45 @@
 <body>
 <!-- partial:index.partial.html -->
 <h1><b>Tercer sitio de prueba del TP <br> Adm Sist GNU/Linux y Virtualización - 2020 </b></h1>
-<h2>Este sitio está siendo hosteado por un segundo server Apache2 <br>
-corriendo desde otro contenedor, escuchando en el puerto 8888.
+<h2>Este sitio está siendo hosteado por un segundo server Apache2 corriendo desde otro contenedor,
+  escuchando en el puerto 8888. <br>
+  A su vez, está vinculado a una base de datos (que corre en un tercer contenedor) 
+  donde se almacena la información de visitas de forma persistente.
 </h2>
+
+<table align="center" style="margin: 0px auto; color:#fff">
+<tr>
+<?php
+  $maria = "SELECT * FROM visitas;";
+  $result = $conn->query($maria);
+  /*$rcheck = mysqli_num_rows($result);*/
+  if ($result->num_rows > 0){
+    echo "<th colspan='2'>Visitas previas</th></tr><tr>";
+    echo "<th>&ensp;#&ensp;</th>
+    <th style='color:#fff'>&ensp;Nombre&ensp;</th></tr>";
+    while($row = $result-> fetch_assoc()){
+      echo "<tr><td>&ensp;" . $row["Num"] . "&ensp;</td><td>&ensp;"
+       . $row["Nombre"] . "&ensp;</td></tr>"; 
+    }
+  }
+  else {
+    echo "<th> No hay visitas previas</th>"; 
+  }
+  $conn->close()
+?>
+</table>
+
+
+<form action="write_db.php" method="POST">
+<input type="text" name="nombre" placeholder="Nombre">
+<br>
+<button type="submit" name="submit">Click aquí para registrar su visita </button>
+<br>
+</form>
+<form action="clear_table.php" method="POST">
+<button type="submit2" name="submit2">Eliminar registros </button>
+</form>
+
 
 <!-- Loader1 -->
 
@@ -117,7 +159,7 @@ corriendo desde otro contenedor, escuchando en el puerto 8888.
 <svg version="1.1" id="L3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
   viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
 <circle fill="none" stroke="#fff" stroke-width="4" cx="50" cy="50" r="44" style="opacity:0.5;"/>
-  <circle fill="#fff" stroke="#008000" stroke-width="3" cx="8" cy="54" r="6" >
+  <circle fill="#fff" stroke="#b40f18" stroke-width="3" cx="8" cy="54" r="6" >
     <animateTransform
       attributeName="transform"
       dur="2s"

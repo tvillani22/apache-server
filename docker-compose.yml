@@ -8,10 +8,7 @@ services:
     ports:
       - 80:80
       - 8080:8080
-    volumes:
-      - vol_persist:/var/www/data
-      # - ./C1/sitios/:/var/www/ 
-    container_name: container_tp
+    container_name: container1_tp
     restart: always
 
   server2:
@@ -21,8 +18,45 @@ services:
     image: server2:latest
     ports:
       - 8888:8888
+    depends_on:
+      - mariadb
     container_name: container2_tp
     restart: always
+    volumes:
+      - ./C2/sitios/:/var/www/ 
 
+  mariadb:
+    image: mariadb:10.5
+    environment:
+      MYSQL_ROOT_PASSWORD: ${ROOT_PASS}
+      MYSQL_USER: ${USER_MDB}
+      MYSQL_PASSWORD: '${USER_MDB_PASS}'
+      MYSQL_DATABASE: db_visitas
+    container_name: container3_tp
+    restart: always
+    volumes:
+      - ./C3:/docker-entrypoint-initdb.d
+      - db_volume:/var/lib/mysql 
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:5
+    links:
+      - 'mariadb:db'
+    ports:
+      - 8889:80
+    container_name: container4_tp 
 volumes:
-  vol_persist:
+  db_volume:
+
+  #- db_volume:/var/www/data
+
+      #volumes:
+      #- ./C2/sitios/:/var/www/ 
+
+      #comillas o no en los campos naranjas da igual
+
+            #TZ: "America/Argentina/Buenos_Aires"
+      #MYSQL_ALLOW_EMPTY_PASSWORD: no
+
+          #ports:
+    #  - 3306:3306
