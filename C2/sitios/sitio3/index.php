@@ -15,10 +15,13 @@ include_once 'conex.php';
 <body>
 <!-- partial:index.partial.html -->
 <h1><b>Tercer sitio de prueba del TP <br> Adm Sist GNU/Linux y Virtualización - 2020 </b></h1>
-<h2>Este sitio está siendo hosteado por un segundo server Apache2 corriendo desde otro contenedor,
+<h2>Este sitio está siendo hosteado por un segundo server Apache2<br>corriendo desde otro contenedor,
   escuchando en el puerto 8888. <br>
-  A su vez, está vinculado a una base de datos (que corre en un tercer contenedor) 
-  donde se almacena la información de visitas de forma persistente.
+  <br>
+  Además, está vinculado a una base de datos (que corre en un tercer contenedor) 
+  donde se almacena de forma persistente el registro de visitas que se muestra a continuación.<br>
+  <br>
+  A su vez, puede accederse a esa DB a través de un gestor con GUI en <a href="http://localhost:8889/" style="color:#090979">este link</a>. 
 </h2>
 
 <table align="center" style="margin: 0px auto; color:#fff">
@@ -26,7 +29,6 @@ include_once 'conex.php';
 <?php
   $maria = "SELECT * FROM visitas;";
   $result = $conn->query($maria);
-  /*$rcheck = mysqli_num_rows($result);*/
   if ($result->num_rows > 0){
     echo "<th colspan='2'>Visitas previas</th></tr><tr>";
     echo "<th>&ensp;#&ensp;</th>

@@ -5,7 +5,7 @@
 }
 
 body {
-  background: #0858a1;
+  background: #0f81ec;
   text-align: center;
   font-family: 'Comfortaa', cursive;
 }
@@ -20,7 +20,7 @@ svg {
 h1 {
   text-align: center;
   color: #fff;
-  margin: 0 0 50px;
+  margin: 0 0 30px;
   font-size: 34px;
   font-weight: 100;
   text-transform: uppercase;
@@ -34,7 +34,7 @@ h1 b {
 h2 {
   text-align: center;
   color: #fff;
-  margin: 0 0 100px;
+  margin: 0 0 50px;
   font-size: 26px;
   font-weight: 300;
   /*background-color: darken($baseColor, 5);*/
