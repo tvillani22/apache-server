@@ -6,6 +6,6 @@
   $maria2 = "ALTER TABLE visitas AUTO_INCREMENT = 1;";
   $conn->query($maria);
   $conn->query($maria2);
-header("Location: index.php?borrado_correcto")
+  header("Location: index.php?borrado_correcto")
 
 ?>

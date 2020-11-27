@@ -1,5 +1,5 @@
 <?php
 
-$PASS = 'unsam'
+ $PASS = 'unsam'
 
 ?>

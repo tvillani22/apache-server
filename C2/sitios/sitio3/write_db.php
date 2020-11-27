@@ -6,6 +6,6 @@
 
   $maria = "INSERT INTO visitas (Nombre) VALUES ('$nomb');";
   $conn->query($maria);
-header("Location: index.php?escritura_correcta")
+  header("Location: index.php?escritura_correcta")
 
 ?>

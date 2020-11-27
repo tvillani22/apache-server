@@ -2,7 +2,7 @@
 
 include_once '.env.php';
 
-$db_servername = 'mariadb'; //nombre del servicio desde el docker-compose o 'localhost'
+$db_servername = 'mariadb';
 $db_user = 'unsam';
 $db_password = $PASS;
 $db = 'db_visitas';

@@ -6,7 +6,7 @@
 <h1 style="font-size:30px"><center>Trabajo Práctico Final: Server Apache</center></h1>
 
 ## Intro
-Este repositorio tiene el Trabajo Práctico Final de la materia Administración de sistemas GNU/Linux y virtualización - 2020. El objetivo es levantar cuatro contenedores de Docker que interactuen entre sí. Dos de ellos corren un servidor Apache2 hosteando tres sitios sencillos de ejemplo, accesibles por distintos puertos de la máquina. El tercero ejecuta un servidor MariaDB al que tiene acceso de lectura/escritura uno de los sitios, y el último es un un gestor de base de datos con interfaz gráfica. 
+Este repositorio tiene el Trabajo Práctico Final de la materia Administración de sistemas GNU/Linux y virtualización - 2020. El objetivo es levantar cuatro contenedores de Docker que interactuen entre sí. Dos de ellos corren un servidor Apache2 hosteando tres sitios sencillos de ejemplo, accesibles por distintos puertos de la máquina. El tercero ejecuta un servidor MariaDB al que tiene acceso de lectura/escritura uno de los sitios, y el último es un gestor de base de datos con interfaz gráfica. 
 
 ## Antes de comenzar
 En caso de ser necesario, es posible acceder al [tutorial orientativo de Docker](https://docs.docker.com/get-started/). Para cuestiones puntuales, puede revisarse la [documentación oficial](https://docs.docker.com/reference/).
@@ -68,7 +68,7 @@ docker-compose down
 >```
 >De esa forma, toda edición que se haga al contenido local se verá reflejada en los sitios que apache de ese contenedor hostea en el momento. Lógicamente la imagen no se alterará, pero es posible trabajar en las modificaciones y una vez finalizadas incorporarlas a la imagen con un `build`.
 
-### Alternativa III: Ejecución en un swarm
+### Alternativa III: Ejecución con un orquestador
 >Es posible correrlo en un cluster en el ***swarm mode*** de docker, reemplazando el paso 3 con:<br>
 >```
 >docker swarm init
@@ -85,7 +85,7 @@ docker-compose down
 >docker swarm leave --force
 >```
 
-## Contacto
+## Colaboradores
 - https://github.com/ipolesello
 - https://github.com/tomlazersheep
 - https://github.com/tvillani22

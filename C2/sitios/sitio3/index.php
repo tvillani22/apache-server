@@ -30,9 +30,9 @@ include_once 'conex.php';
   $maria = "SELECT * FROM visitas;";
   $result = $conn->query($maria);
   if ($result->num_rows > 0){
-    echo "<th colspan='2'>Visitas previas</th></tr><tr>";
-    echo "<th>&ensp;#&ensp;</th>
-    <th style='color:#fff'>&ensp;Nombre&ensp;</th></tr>";
+    echo "<th colspan='2'>VISITAS PREVIAS</th></tr><tr>";
+    echo "<th>&ensp; # &ensp;</th>
+    <th>&ensp; Nombre &ensp;</th></tr>";
     while($row = $result-> fetch_assoc()){
       echo "<tr><td>&ensp;" . $row["Num"] . "&ensp;</td><td>&ensp;"
        . $row["Nombre"] . "&ensp;</td></tr>"; 
