@@ -6,7 +6,7 @@
 <h1 style="font-size:30px"><center>Trabajo Práctico Final: Server Apache</center></h1>
 
 ## Intro
-Este repositorio tiene el Trabajo Práctico Final de la materia Administración de sistemas GNU/Linux y virtualización - 2020. El objetivo es levantar cuatro contenedores de Docker con alguna interacción entre sí. Dos de ellos corren un servidor Apache2 hosteando tres sitios sencillos de ejemplo accesibles por distintos puertos de la máquina. El tercero ejecuta un servidor MariaDB al que tiene acceso de lectura/escritura uno de los sitios, y el último contenedor es un un gestor de base de datos con interfaz gráfica. 
+Este repositorio tiene el Trabajo Práctico Final de la materia Administración de sistemas GNU/Linux y virtualización - 2020. El objetivo es levantar cuatro contenedores de Docker que interactuen entre sí. Dos de ellos corren un servidor Apache2 hosteando tres sitios sencillos de ejemplo, accesibles por distintos puertos de la máquina. El tercero ejecuta un servidor MariaDB al que tiene acceso de lectura/escritura uno de los sitios, y el último es un un gestor de base de datos con interfaz gráfica. 
 
 ## Antes de comenzar
 En caso de ser necesario, es posible acceder al [tutorial orientativo de Docker](https://docs.docker.com/get-started/). Para cuestiones puntuales, puede revisarse la [documentación oficial](https://docs.docker.com/reference/).
@@ -51,7 +51,6 @@ Reemplazando `<#>` con el número de contenedor deseado.
 ```
 docker-compose down
 ```
-<br>
 
 ## Ejecuciones alternativas
 ### Alternativa I: Descargar la imagen ya armada
@@ -85,13 +84,13 @@ docker-compose down
 >```
 >docker swarm leave --force
 >```
-<br>
 
 ## Contacto
 - https://github.com/ipolesello
 - https://github.com/tomlazersheep
 - https://github.com/tvillani22
 
+<br>
 <table cellspacing="100" cellpadding="100">
   <tr>
   <td> <a href=https://ubuntu.com> <img id="im" src=imgs/ubuntu.svg width=300/> </a> </td>

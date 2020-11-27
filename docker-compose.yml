@@ -1,4 +1,4 @@
-version: '3'
+version: '3.5'
 
 services:
   server1:
@@ -22,8 +22,8 @@ services:
       - mariadb
     container_name: container2_tp
     restart: always
-    volumes:
-      - ./C2/sitios/:/var/www/ 
+    #volumes:
+    # - ./C2/sitios/:/var/www/ 
 
   mariadb:
     image: mariadb:10.5
@@ -49,3 +49,4 @@ services:
 
 volumes:
   db_volume:
+    name: vol_persist
