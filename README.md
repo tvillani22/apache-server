@@ -40,14 +40,14 @@ docker-compose up [-d]
 **Sitio 3**: `http://127.0.0.1:8888` (o `http://localhost:8888`)<br>
 **Gestor de BD**: `http://127.0.0.1:8889` (o `http://localhost:8889`)<br>
 <br>
-**A su vez, se puede obtener información de los contenedores corriendo con:** 
+A su vez, puede obtenerse información de los contenedores corriendo con:
 ```
 docker ps
 docker inspect container<#>_tp
 ```
 Reemplazando `<#>` con el número de contenedor deseado.
 
-**5. Para detener los contenedores**:
+**5. Detener los contenedores**:
 ```
 docker-compose down
 ```
@@ -60,7 +60,7 @@ docker-compose down
 >```
 >Y comenzar el procedimiento desde el punto 3 en adelante (omitiendo 1 y 2). Al levantar el contenedor, docker reconocerá que no tiene esa imagen entre las disponibles localmente y hará el `pull` desde el repositorio. En los sitios se indicará que corresponden a la versión de la imagen prearmada.
 
-### Alternativa II: Edición del sitio 3 con el contenedor corriendo
+### Alternativa II: Edición de sitio con el contenedor en ejecución
 >El paso a paso descripto es ideal para compartir el proyecto porque contiene el procedimiento de instalación y ejecución del servidor junto con los sitios todo en una unidad (la imagen). Pero no permite la edición de los sitios en tiempo de ejecución. Una posible solución es montar la carpeta local donde está el contenido de los sitios en el path donde están sus correspondientes copias. Para ello, ejemplificando para el server del segundo contenedor, basta modificar el `docker-compose.yml` insertando debajo de la línea 24: <br>
 >```
 >volumes:
@@ -69,7 +69,7 @@ docker-compose down
 >De esa forma, toda edición que se haga al contenido local se verá reflejada en los sitios que apache de ese contenedor hostea en el momento. Lógicamente la imagen no se alterará, pero es posible trabajar en las modificaciones y una vez finalizadas incorporarlas a la imagen con un `build`.
 
 ### Alternativa III: Ejecución con un orquestador
->Es posible correrlo en un cluster en el ***swarm mode*** de docker, reemplazando el paso 3 con:<br>
+>Es posible correrlo en un cluster en el ***swarm mode*** de docker, reemplazando el procedimiento a partir del paso 3 con:<br>
 >```
 >docker swarm init
 >docker stack deploy -c docker-compose.yml  tp_stack
@@ -80,6 +80,7 @@ docker-compose down
 >docker service scale tp_stack_<nombre>=<N>
 >```
 >Reemplazando `<nombre>` con el nombre del servicio a escalar y `<N>` con el número deseado. Y para corroborar si efectivamente se levantaron esos contenedores puede correse nuevamente `docker service ls` observando la columna **replicas**. Obviamente es posible mirar información particular de cada uno como se explicó en el paso 4, aunque en este caso, dado que pueden ser múltiples, docker ignorará el nombre asignado al container en el `docker-compose.yml`, por lo que en el segundo comando indicado se debe reemplazar `tp_container` por el nombre (o el id) del container que se obtiene del output de `docker ps`.<br>
+>
 >Para cerrar el swarm:
 >```
 >docker swarm leave --force

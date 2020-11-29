@@ -1,6 +1,6 @@
-CREATE TABLE db_visitas.visitas
+CREATE DATABASE IF NOT EXISTS db_visitas;
+CREATE TABLE IF NOT EXISTS db_visitas.visitas
 (
     Num INT(2) AUTO_INCREMENT primary key,
-    Nombre TEXT
+    Nombre TEXT NOT NULL CHECK(Nombre<>'')
 );
-/*CREATE DATABASE IF NOT EXISTS db_visitas;*/
